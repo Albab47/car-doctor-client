@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.svg";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { FaUser } from "react-icons/fa6";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
@@ -72,7 +73,21 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user?.email ? (
-          <button onClick={handleLogout} className="btn btn-sm">Logout</button>
+          <>
+            <div className="dropdown dropdown-hover dropdown-end">
+              <div tabIndex={0} role="button" className="m-1 btn btn-ghost btn-circle">
+                <FaUser />
+              </div>
+              <ul tabIndex={0} className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <li className="text-md font-medium text-center text-primary">{user.email}</li>
+                <li><a>Orders</a></li> 
+                <li><a>Manage Orders</a></li>
+                <li>
+                  <button onClick={handleLogout} className="btn btn-sm">Logout</button>
+                </li>
+              </ul>
+            </div>
+          </>
         ) : (
           <Link to="/login">
             <button className="btn btn-outline">Appointment</button>

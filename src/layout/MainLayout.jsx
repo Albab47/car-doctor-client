@@ -4,11 +4,13 @@ import Navbar from "../pages/shared/Navbar/Navbar";
 
 const MainLayout = () => {
   return (
-    <div className="max-w-6xl mx-auto px-5">
+    <>
       <Navbar />
-      <Outlet />
+      <div className="max-w-6xl mx-auto px-5">
+        <Outlet />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 

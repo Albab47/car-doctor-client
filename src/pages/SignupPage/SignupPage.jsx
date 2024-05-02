@@ -1,11 +1,28 @@
+import { useContext } from "react";
 import img from "../../assets/images/login/login.svg";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const SignupPage = () => {
-  const handleLogin = () => {
+  const { createUser } = useContext(AuthContext);
 
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name, email, password);
+
+    try {
+      const result = await createUser(email, password);
+      const user = result.user;
+      console.log(user);
+    } catch (err) {
+      console.error(err); 
+    }
   };
-    
+
   return (
     <section>
       <div className="hero min-h-screen bg-base">
@@ -15,7 +32,7 @@ const SignupPage = () => {
           </div>
 
           <div className="card shrink-0 w-full max-w-sm border bg-base-100">
-            <form onSubmit={handleLogin} className="card-body">
+            <form onSubmit={handleSignup} className="card-body">
               <h1 className="text-3xl font-bold text-center">Sign Up</h1>
               <div className="form-control">
                 <label className="label">

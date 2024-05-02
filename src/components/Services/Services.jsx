@@ -16,7 +16,7 @@ const Services = () => {
 
   return (
     <section className="my-28">
-      <header className="text-center max-w-2xl mx-auto">
+      <header className="text-center max-w-2xl mx-auto space-y-5">
         <h3 className="text-xl text-primary font-semibold">Our services</h3>
         <h2 className="text-4xl font-bold">Our Service Area</h2>
         <p className="text-light">
@@ -25,7 +25,7 @@ const Services = () => {
         </p>
       </header>
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+      <div className="my-10 grid sm:grid-cols-2 md:grid-cols-3 gap-5">
       {services.map(service => (
         <ServiceCard key={service._id} service={service} />
       ))}

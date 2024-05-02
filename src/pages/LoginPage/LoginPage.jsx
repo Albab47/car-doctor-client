@@ -40,7 +40,7 @@ const LoginPage = () => {
                 <input
                   type="email"
                   placeholder="email"
-                  name="name"
+                  name="email"
                   className="input input-bordered"
                   required
                 />
